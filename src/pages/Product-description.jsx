@@ -350,11 +350,12 @@ function ProductTabs({ product }) {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                             {[
                                 { label: "Brand", value: "Prime Access GH" },
-                                { label: "Category", value: "Tech Accessories" },
-                                { label: "Warranty", value: "12 Months" },
-                                { label: "Availability", value: "In Stock" },
                                 { label: "Condition", value: "Brand New" },
-                                { label: "Origin", value: "Manufacturer Direct" },
+                                { label: "Availability", value: "In Stock" },
+                                { label: "Category", value: "Tech Accessories" },
+                                
+                                
+                               
                             ].map((spec) => (
                                 <div
                                     key={spec.label}
