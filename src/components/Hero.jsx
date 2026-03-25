@@ -11,7 +11,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[85vh] bg-background overflow-hidden flex items-center">
+    <section className="relative min-h-[85vh] bg-background overflow-hidden flex items-center z-10">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 bg-muted">
         {/* Geometric Pattern Overlay */}
@@ -28,16 +28,16 @@ function Hero() {
         />
         
         {/* Floating Gradient Orbs */}
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-black/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-black/5 rounded-full blur-3xl animate-float-delayed" />
+        <div className="absolute top-1/4 -left-20 w-20 h-20 lg:w-96 lg:h-96 bg-black/5 rounded-full blur-xl lg:3xl animate-float" />
+        <div className="absolute bottom-1/4 -right-20 w-10 h-10 lg:w-96 lg:h-96 bg-black/5 rounded-full blur-xl lg:3xl animate-float-delayed" />
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 lg:px-16 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
           
           {/* Left Content */}
-          <div className="space-y-8 animate-slide-up">
+          <div className="space-y-1 animate-slide-up">
             {/* Eyebrow Text */}
             <div className="inline-block">
               <span className="text-sm font-semibold tracking-[0.3em] uppercase text-black/60 animate-fade-in">
@@ -46,10 +46,10 @@ function Hero() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight animate-slide-up-delayed">
+            <h1 className="text-3xl lg:text-7xl font-bold leading-[1.1] tracking-tight animate-slide-up-delayed">
               <span className="block text-black">Power Your</span>
               <span className="block text-black mt-2">Digital Life</span>
-              <span className="block text-black/40 text-3xl lg:text-4xl mt-4 font-light">
+              <span className="block text-black/40 text-2xl lg:text-4xl mt-2 font-light">
                 with Excellence
               </span>
             </h1>
@@ -63,8 +63,8 @@ function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 pt-4 animate-slide-up-extra-delayed">
               <Button 
-                size="lg"
-                className="bg-black text-white hover:bg-black/90 px-8 py-6 text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+                size="sm"
+                className="bg-black text-white hover:bg-black/90 px-4 py-2 lg:px-8 lg:py-6  text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group"
               >
                 Shop Now
                 <svg 
@@ -78,16 +78,16 @@ function Hero() {
               </Button>
               
               <Button 
-                size="lg"
+                size="sm"
                 variant="outline"
-                className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-6 text-base font-semibold transition-all duration-300"
+                className="border-2 border-black text-black hover:bg-black hover:text-white px-4 py-2 lg:px-8 lg:py-6 text-base font-semibold transition-all duration-300"
               >
                 View Collections
               </Button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-8 pt-8 animate-fade-in-extra-delayed">
+            <div className="flex flex-wrap gap-4 pt-4 lg:gap-8 lg:pt-8 animate-fade-in-extra-delayed">
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -135,7 +135,7 @@ function Hero() {
               </div>
 
               {/* Floating Product Cards */}
-              <div className="absolute top-8 -left-8 bg-white rounded-xl shadow-xl p-4 animate-float-card hidden lg:block">
+              <div className="absolute top-8 -left-8 bg-white rounded-xl hadow-xl p-4 animate-float-card hidden lg:block">
                 <div className="flex items-center gap-3">
                   <img src="/rng.jpg" alt="ring-lights"  className="w-12 h-12 bg-muted rounded-lg" />
                   <div>

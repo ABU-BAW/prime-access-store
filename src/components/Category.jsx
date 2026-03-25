@@ -1,69 +1,70 @@
 import { Link, useSearchParams } from 'react-router-dom'
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 const categories = [
     {
         label: "Storage Devices",
         value: "storage-devices",
         image: "/ssdt.jpg",
-        description: "Flash drives, HDDs and SSDs for your digital load"
     },
     {
         label: "Ring Lights",
         value: "ring-lights",
         image: "/rt.jpg",
-        description: "Professional lighting for content creators"
     },
     {
         label: "Tripod Stands",
         value: "tripod-stands",
         image: "/ups.jpg",
-        description: "Sturdy stands for cameras and accessories"
     },
     {
         label: "Computer Pads",
         value: "computer-pads",
         image: "/cd.jpg",
-        description: "Mouse pads and desk mats for every setup"
     },
 ]
 
 function Category() {
     const [searchParams] = useSearchParams()
     const activeCategory = searchParams.get('category')
-
+    
     return ( 
-        <>
-            <h1 className="text-xl font-bold text-center pt-2">Shop by Category</h1>
-            <div className="grid grid-cols-1 mb-4 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
+        <section className="py-6 px-4 bg-white">
+            <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 text-gray-900">
+                Shop by Category
+            </h2>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
                 {categories.map((cat) => (
                     <Link 
                         key={cat.value} 
                         to={`/shop?category=${cat.value}`}
+                        className="group"
                     >
-                        <Card className={`overflow-hidden py-0 bg-muted transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
+                        <div className={`bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
                             activeCategory === cat.value 
-                                ? 'ring-2 ring-black' // Highlighted when active
-                                : ''
+                                ? 'ring-2 ring-black' 
+                                : 'hover:ring-1 hover:ring-gray-300'
                         }`}>
-                            <img 
-                                src={cat.image} 
-                                alt={cat.label} 
-                                className="w-full object-cover h-40 border-b" 
-                            />
-                            <CardHeader className="pb-2">
-                                <CardTitle className="text-lg font-semibold">
+                            {/* Square Image */}
+                            <div className="relative w-full aspect-square overflow-hidden bg-gray-100">
+                                <img 
+                                    src={cat.image} 
+                                    alt={cat.label} 
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                                />
+                            </div>
+                            
+                            {/* Label Only - Very compact */}
+                            <div className="p-2 sm:p-3 text-center bg-white">
+                                <h3 className="font-semibold text-xs sm:text-sm text-gray-900 leading-tight">
                                     {cat.label}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-foreground/60 text-sm">{cat.description}</p>
-                            </CardContent>
-                        </Card>
+                                </h3>
+                            </div>
+                        </div>
                     </Link>
                 ))}
             </div>
-        </>
+        </section>
     );
 }
 
