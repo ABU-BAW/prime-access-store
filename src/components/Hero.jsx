@@ -85,8 +85,6 @@ function Hero() {
                 View Collections
               </Button>
             </div>
-
-            {/* Trust Indicators */}
             
           </div>
 
