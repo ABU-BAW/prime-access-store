@@ -5,7 +5,7 @@ import Home from "./pages/Home"
 import Shop from "./pages/Shop"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
-import ProductDescription from "./pages/product-description"
+import ProductDescription from "./pages/Product-description"
 
 
 
