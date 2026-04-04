@@ -6,6 +6,7 @@ import Shop from "./pages/Shop"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 import ProductDescription from "./pages/Product-description"
+import NotFound from "./pages/NotFound"
 
 
 
@@ -27,7 +28,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/shop/:id" element={<ProductDescription />} />
-            
+            <Route path="*" element={<NotFound />} />
+
         </Routes>
       </main>
       <Footer/>
