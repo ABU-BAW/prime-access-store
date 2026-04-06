@@ -1,68 +1,67 @@
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const categories = [
     {
-        label: "Storage Devices",
-        value: "storage-devices",
-        image: "/ssdt.jpg",
+        id : 1,
+        label : "storage-devices",
+        categoryName: "Storage Devices",
+        categoryImage: "/ssdt.jpg",
+        callToAction: ( <p>Shop Now →</p> ),
     },
     {
-        label: "Ring Lights",
-        value: "ring-lights",
-        image: "/rt.jpg",
+        id : 2,
+        label : "ring-lights",
+        categoryName: "Ring Lights",
+        categoryImage: "/ringlights.jpg",
+        callToAction: ( <p>Shop Now →</p> )
     },
     {
-        label: "Tripod Stands",
-        value: "tripod-stands",
-        image: "/ups.jpg",
+        id : 3,
+        label : "tripod-stands",
+        categoryName: "Tripod Stands",
+        categoryImage: "/tripodstands.jpg",
+        callToAction: ( <p>Shop Now →</p> )
     },
     {
-        label: "Computer Pads",
-        value: "computer-pads",
-        image: "/cd.jpg",
+        id : 4,
+        label : "mouse-pads",
+        categoryName: "Mouse pads",
+        categoryImage: "/mousepad.jpg",
+        callToAction: ( <p>Shop Now →</p> )
     },
 ]
 
 function Category() {
-    const [searchParams] = useSearchParams()
-    const activeCategory = searchParams.get('category')
     
     return ( 
-        <section className="py-6 px-4 bg-white">
-            <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 text-gray-900">
+        <section className=" bg-background flex flex-col mb-4">
+            <h2 className="text-xl font-bold text-center tracking-tight text-gray-900">
                 Shop by Category
             </h2>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
-                {categories.map((cat) => (
-                    <Link 
-                        key={cat.value} 
-                        to={`/shop?category=${cat.value}`}
-                        className="group"
-                    >
-                        <div className={`bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
-                            activeCategory === cat.value 
-                                ? 'ring-2 ring-black' 
-                                : 'hover:ring-1 hover:ring-gray-300'
-                        }`}>
-                            {/* Square Image */}
-                            <div className="relative w-full aspect-square overflow-hidden bg-gray-100">
-                                <img 
-                                    src={cat.image} 
-                                    alt={cat.label} 
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                                />
+
+            <p className='text-xs  text-black self-center mb-1'>Explore  collections</p>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl w-full ">
+                {
+                    categories.map(category => (
+                        <Link
+                            key={category.id}
+                            to={`/shop/${category.label}`}
+                        >
+                            <div
+                                className="relative h-28 rounded-lg overflow-hidden w-full bg-cover bg-center p-2.5"
+                                style={{backgroundImage: `url(${category.categoryImage})`}}
+                            >
+                                <div className='absolute inset-0 bg-black/50'></div>
+                                <div className='relative z-10 h-full justify-end flex flex-col gap-0.5'>
+                                    <h3 className='text-sm font-semibold tracking-tight text-white'>{category.categoryName}</h3>
+                                    <p className='text-xs text-white'>{category.callToAction}</p>
+                                </div>
+
                             </div>
-                            
-                            {/* Label Only - Very compact */}
-                            <div className="p-2 sm:p-3 text-center bg-white">
-                                <h3 className="font-semibold text-xs sm:text-sm text-gray-900 leading-tight">
-                                    {cat.label}
-                                </h3>
-                            </div>
-                        </div>
-                    </Link>
-                ))}
+                        </Link>
+                    ))
+                }
             </div>
         </section>
     );

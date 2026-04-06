@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 function Hero() {
   
   return (
-    <section className="h-[45vh] bg-muted">
+    <section className="h-[46vh] bg-muted ">
       <div
         className="relative h-[30vh] w-full bg-cover bg-center"
         style={{backgroundImage: "url('/workstation.jpg')"}}
