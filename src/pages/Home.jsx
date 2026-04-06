@@ -22,7 +22,7 @@ function Home() {
     return ( 
         <>
             <Hero/>
-            <section className="bg-background my-4">
+            <section className="bg-background">
                 <Category/>
                 <Listing products={products} />
             </section>
