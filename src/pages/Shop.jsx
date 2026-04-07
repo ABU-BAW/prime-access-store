@@ -1,5 +1,5 @@
 import Category from "@/components/Category";
-import Listing from "@/components/Listings";
+import Listing from "@/components/Featured";
 import { products } from "@/data/products";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";

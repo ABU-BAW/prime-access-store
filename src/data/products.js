@@ -9,7 +9,16 @@ export const products = [
         {name : "thinkpad laptop battery", id : 6, price : 65, category: "computer-battery"},
         {name : "amazon home smart 4", id : 7, price : 200, category: "computer-pads"},
         {name : "logitech mouse", id : 8, price : 100, category: "computer-pads"},
-    ]
+]
+
+export const featured = [
+        {name : "ring light xe", id : 1, price : 450, category: "ring-lights"},
+        {name : "pen drive 2tb", id : 2, price : 350, category: "storage-device"},
+        {name : "lenovo laptop charger", id : 3, price : 120, category: "laptop-chargers"},
+        {name : "apple serie-c cord", id : 4, price : 90, category: "data-cables"}
+]
+
+
 
 // export const ringLights = [
 //   { name: "18-inch studio ring light", id: 1, price: 450 },
