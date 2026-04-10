@@ -29,23 +29,23 @@ const categories = [
         categoryImage: "/mousepad.jpg",
         callToAction: ( <p>Shop Now →</p> )
     },
-]
+] 
 
 function Category() {
-    
+     
     return ( 
         <section className=" bg-muted flex flex-col mb-4">
             <h2 className="text-xl font-bold text-center tracking-tight text-gray-900">
                 Shop by Category
             </h2>
 
-            <p className='text-xs  text-foreground/50 self-center mb-1'>Explore our curated collections</p>
+            <p className='text-xs  text-foreground/50 self-center mb-2'>Explore our curated collections</p>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl w-full ">
                 {
                     categories.map(category => (
                         <Link
-                            key={category.id}
+                            key={category.id} 
                             to={`/shop/${category.label}`}
                         >
                             <div

@@ -1,8 +1,6 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -21,25 +19,23 @@ function Featured({featured}) {
                 </div>
                 <span><Button>View all →</Button></span>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 ">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 ">
                 {
                     featured.map(product => (
-                        <Card className="mx-auto w-full max-w-sm pt-0" key={product.id}>
-                            <img
-                                src= {`${product.image}`}
-                                alt="product image"
-                                className=" aspect-video w-full object-cover "
-                            />
-                            <CardHeader>
-                                <CardTitle>{product.name}</CardTitle>
-                                <CardDescription>
-                                    {product.price}
-                                </CardDescription>
-                            </CardHeader>
-                            <CardFooter>
-                                <Button className="w-full">Purchase</Button>
-                            </CardFooter>
-                        </Card>
+                        <div className="flex flex-col h-56 w-full mb-3 " key={product.id}>
+                            <div className=" w-full h-[60%]">
+                                <img
+                                 src={`${product.image}`}
+                                 alt="product image" 
+                                 className="object-cover w-full h-full"
+                                 />  
+                            </div>
+                            <div className="flex flex-col gap-1.5 px-2  border-t ">
+                                <h3 className="text-lg tracking-tight font-semibold">{product.name}</h3>
+                                <p className="text-xl font-bold text-foreground leading-none">{"\u20B5"}{product.price}</p>
+                                <Button className="mb-2 w-full" size="sm">Purchase</Button>
+                            </div>
+                        </div>
                     ))
                 }
             </div>
