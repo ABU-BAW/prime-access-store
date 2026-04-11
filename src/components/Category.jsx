@@ -34,14 +34,14 @@ const categories = [
 function Category() {
      
     return ( 
-        <section className=" bg-muted flex flex-col mb-4">
-            <h2 className="text-xl font-bold text-center tracking-tight text-gray-900">
+        <section className=" bg-muted flex flex-col mb-2 ">
+            <h2 className="text-xl font-bold text-center tracking-tight text-gray-900  lg:mt-3 lg:leading-relaxed">
                 Shop by Category
             </h2>
 
-            <p className='text-xs  text-foreground/50 self-center mb-2'>Explore our curated collections</p>
+            <p className='text-xs  text-foreground/50 self-center mb-4'>Explore curated collections</p>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl w-full ">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full">
                 {
                     categories.map(category => (
                         <Link
@@ -49,7 +49,7 @@ function Category() {
                             to={`/shop/${category.label}`}
                         >
                             <div
-                                className="relative h-28 rounded-lg overflow-hidden w-full bg-cover bg-center p-2.5"
+                                className="relative h-28 lg:h-40 rounded-lg overflow-hidden w-full bg-cover bg-center p-2.5"
                                 style={{backgroundImage: `url(${category.categoryImage})`}}
                             >
                                 <div className='absolute inset-0 bg-black/50'></div>
