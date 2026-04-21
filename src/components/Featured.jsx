@@ -24,7 +24,7 @@ function Featured({featured}) {
                                 <img
                                  src={`${product.image}`}
                                  alt="product image" 
-                                 className="object-cover w-full h-full overflow-"
+                                 className="object-cover w-full h-full overflow-hidden"
                                  />  
                             </div>
                             <div className="flex flex-col pt-1 pb-2  border-t  px-2 flex-1 justify-between">
@@ -34,7 +34,7 @@ function Featured({featured}) {
                                 </div>
                                 <Button className="w-full" size="sm">Purchase</Button>
                             </div>
-                        </div>
+                        </div> 
                     ))
                 }
             </div>
