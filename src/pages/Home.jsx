@@ -4,22 +4,15 @@ import Featured from "../components/Featured"
 import Category from "../components/Category"
 
 
+
 function Home() { 
-
-    const featured = [
-        {name : "Ring light xe", id : 1, price : 450, category: "ring-lights", image : "/fringlight.jpg"},
-        {name : "Pen drive 2tb", id : 2, price : 350, category: "storage-device",image : "/usb.jpg"},
-        {name : "Laptop charger", id : 3, price : 120, category: "laptop-chargers",image : "/lct.jpg"},
-        {name : "Apple serie-c cord", id : 4, price : 90, category: "data-cables",image : "/cd.jpg"}
-]
-
 
     return ( 
         <>
             <Hero/>
             <section>
                 <Category/>
-                <Featured featured={featured} />
+                <Featured/>
             </section>
             <HeroSlider />
         </>

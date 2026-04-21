@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button"
+import { Link } from "react-router-dom";
+import { featured } from "@/data/products"
 
 
-function Featured({featured}) {
+function Featured() {
     
     return ( 
         <section className="py-4 px-0  bg-mute ">
@@ -10,7 +12,11 @@ function Featured({featured}) {
                     <h2 className="text-black text-xl font-bold tracking-tight">Featured Products</h2>
                     <p className="text-foreground/50 text-xs tracking-tight">Handpicked favorites just for you</p>  
                 </div>
-                <span><Button>View all →</Button></span>
+                <Link
+                    to="/shop"
+                >
+                    <span><Button>View all →</Button></span>
+                </Link>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 ">
                 {
