@@ -88,49 +88,49 @@ export const categories = [
                         id: 1,
                         Name: "RL-10 Mini Ring Light",
                         price: 320,
-                        image: "/rl10"
+                        image: "/ring-lights/rl1.jpg"
                 },
                 {
                         id: 2,
                         Name: "RL-12 Pro Ring Light",
                         price: 550,
-                        image: "/rl12pro"
+                        image: "/ring-lights/rl2.jpg"
                 },
                 {
                         id: 3,
                         Name: "RL-14 LED Ring Light",
                         price: 680,
-                        image: "/rl14"
+                        image: "/ring-lights/rl3.jpg"
                 },
                 {
                         id: 4,
                         Name: "RL-16 Studio Ring Light",
                         price: 820,
-                        image: "/rl16studio"
+                        image: "/ring-lights/rl4.jpg"
                 },
                 {
                         id: 5,
                         Name: "RL-18 Deluxe Ring Light",
                         price: 950,
-                        image: "/rl18deluxe"
+                        image: "/ring-lights/rl3.jpg"
                 },
                 {
                         id: 6,
                         Name: "RL-20 Max Ring Light",
                         price: 1100,
-                        image: "/rl20max"
+                        image: "/ring-lights/rl4.jpg"
                 },
                 {
                         id: 7,
                         Name: "RL-22 Ultra Ring Light",
                         price: 1250,
-                        image: "/rl22ultra"
+                        image: "/ring-lights/rl2.jpg"
                 },
                 {
                         id: 8,
                         Name: "RL-24 Pro Max Ring Light",
                         price: 1450,
-                        image: "/rl24promax"
+                        image: "/ring-lights/rl1.jpg"
                 }
         ]
     },
@@ -144,49 +144,49 @@ export const categories = [
                         id: 1,
                         Name: "TS-40 Compact Tripod Stand",
                         price: 250,
-                        image: "/ts40"
+                        image: "/tripods/ts1.jpg"
                 },
                 {
                         id: 2,
                         Name: "TS-50 Adjustable Tripod Stand",
                         price: 320,
-                        image: "/ts50"
+                        image: "/tripods/ts2.jpg"
                 },
                 {
                         id: 3,
                         Name: "TS-60 Pro Tripod Stand",
                         price: 450,
-                        image: "/ts60pro"
+                        image: "/tripods/ts3.jpg"
                 },
                 {
                         id: 4,
                         Name: "TS-70 Heavy Duty Tripod",
                         price: 600,
-                        image: "/ts70"
+                        image: "/tripods/ts4.jpg"
                 },
                 {
                         id: 5,
                         Name: "TS-80 Studio Tripod Stand",
                         price: 750,
-                        image: "/ts80studio"
+                        image: "/tripods/ts3.jpg"
                 },
                 {
                         id: 6,
                         Name: "TS-90 Max Height Tripod",
                         price: 900,
-                        image: "/ts90max"
+                        image: "/tripods/ts1.jpg"
                 },
                 {
                         id: 7,
                         Name: "TS-100 Aluminum Tripod",
                         price: 1050,
-                        image: "/ts100"
+                        image: "/tripods/ts4.jpg"
                 },
                 {
                         id: 8,
                         Name: "TS-120 Professional Tripod",
                         price: 1250,
-                        image: "/ts120pro"
+                        image: "/tripods/ts2.jpg"
                 }
         ]
     },
@@ -200,49 +200,49 @@ export const categories = [
                         id: 1,
                         Name: "MP-01 Basic Mouse Pad",
                         price: 50,
-                        image: "/mp01"
+                        image: "/mouse-pad/mp1.jpg"
                 },
                 {
                         id: 2,
                         Name: "MP-02 Smooth Surface Mouse Pad",
                         price: 80,
-                        image: "/mp02"
+                        image: "/mouse-pad/mp2.jpg"
                 },
                 {
                         id: 3,
                         Name: "MP-03 Gaming Mouse Pad",
                         price: 120,
-                        image: "/mp03gaming"
+                        image: "/mouse-pad/mp3.jpg"
                 },
                 {
                         id: 4,
                         Name: "MP-04 Extended Mouse Pad",
                         price: 180,
-                        image: "/mp04extended"
+                        image: "/mouse-pad/m4.jpg"
                 },
                 {
                         id: 5,
                         Name: "MP-05 RGB Mouse Pad",
                         price: 250,
-                        image: "/mp05rgb"
+                        image: "/mouse-pad/mp1.jpg"
                 },
                 {
                         id: 6,
                         Name: "MP-06 Anti-Slip Mouse Pad",
                         price: 140,
-                        image: "/mp06"
+                        image: "/mouse-pad/mp3.jpg"
                 },
                 {
                         id: 7,
                         Name: "MP-07 Waterproof Mouse Pad",
                         price: 160,
-                        image: "/mp07"
+                        image: "/mouse-pad/mp2.jpg"
                 },
                 {
                         id: 8,
                         Name: "MP-08 XL Desk Mouse Pad",
                         price: 300,
-                        image: "/mp08xl"
+                        image: "/mouse-pad/m4.jpg"
                 }
         ]
 
