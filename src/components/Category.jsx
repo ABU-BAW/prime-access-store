@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
-import { categories } from '@/data/products';
+import { products } from '@/data/products';
 
 function Category() {
+
+    const category = products.slice(0, 4);
      
     return ( 
         <section className=" bg-muted flex flex-col mb-2 ">
@@ -13,18 +15,18 @@ function Category() {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full">
                 {
-                    categories.map(category => (
+                    category.map(product => (
                         <Link
-                            key={category.id} 
-                            to={`/shop/${category.label}`}
+                            key={product.id} 
+                            to={`/shop/${product.slug}`}
                         >
                             <div
                                 className="relative h-28 lg:h-40 rounded-lg overflow-hidden w-full bg-cover bg-center p-2.5"
-                                style={{backgroundImage: `url(${category.categoryImage})`}}
+                                style={{backgroundImage: `url(${product.image})`}}
                             >
                                 <div className='absolute inset-0 bg-black/50'></div>
                                 <div className='relative z-10 h-full justify-end flex flex-col gap-0.5'>
-                                    <h3 className='text-sm font-semibold tracking-tight text-white'>{category.categoryName}</h3>
+                                    <h3 className='text-sm font-semibold tracking-tight text-white'>{product.category}</h3>
                                     <p className='text-xs text-white'>Shop Now →</p>
                                 </div>
 

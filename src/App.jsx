@@ -7,6 +7,8 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 import CategoryList from "./components/CategoryList"
+import ProductPage from "./pages/Product-description"
+
 
 
 
@@ -27,7 +29,8 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/shop/:id" element={<CategoryList />} />
+            <Route path="/shop/:category" element={<CategoryList />} />
+            <Route path="/shop/:category/:product" element={<ProductPage />} />
             <Route path="*" element={<NotFound />} />
 
         </Routes>
