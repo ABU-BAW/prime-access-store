@@ -1,23 +1,37 @@
-import { shuffled } from "@/data/products"
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
-//import { products } from "@/data/products"
+import { useEffect, useState } from "react"
+import axios from "axios"
+
 
 function Shop() {
+    const [products, setProducts] = useState([])
     
+    useEffect(() => {
+        const fetchProducts = async() => {
+            try {
+                const res = await axios.get('http://localhost:5000/api/products')
+                setProducts(res.data.products)
+            } catch (error) {
+                console.log(error.message);
+            }
+            
+        }
+        fetchProducts()
+    }, [])
 
     return (
         <section className="w-full min-h-screen  bg-muted">
             <div className="grid grid-cols-2 lg:grid-cols-4 "> 
                 {
-                    shuffled.map(product => (
+                    products.map(product => (
                         <div 
-                            key={product.id}
+                            key={product._id}
                             className="flex flex-col h-60 lg:min-h-72 w-full mb-0.5  overflow-hidden  p-2" 
                         >
                             <div className=" w-full h-[60%]">
                                 <img
-                                 src={`${product.image}`}
+                                 src={`${product.imageUrl}`}
                                  alt="product image" 
                                  className="object-cover w-full h-full overflow-hidden rounded-lg"
                                  />  
@@ -27,11 +41,11 @@ function Shop() {
                                     <h3 className="text-sm tracking-tight font-bold leading-normal line-clamp-2">{product.name}</h3>
                                     <p className="text-sm font-semibold text-foreground leading-0 mb-2">GH{"\u20B5"}{product.price}</p>
                                 </div>
-                                <Link to= {`/shop/${product.slug}/${product.name}`}>
+                                <Link to= {`/shop/product/${product._id}`}>
                                     <Button className="w-full" size="sm">Purchase</Button>
                                 </Link>
                             </div>
-                        </div> 
+                        </div>  
                     ))
                 }
             </div>

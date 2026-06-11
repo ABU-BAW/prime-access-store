@@ -7,7 +7,7 @@ function Navbar() {
     const[mobileMenu, setMobileMenu]  = useState(false);
 
     return ( 
-       <>
+       <header className="shrink-0">
            <nav className="flex relative justify-around items-center z-50 bg-background  font-semibold text-foreground min-h-20 drop-shadow-lg text-base">
                 <Link to= "/" className="flex items-center gap-2 hover:bg-muted p-2 rounded-lg">
                     <img src="/logo.svg" className="h-10 w-auto"  alt="prime-access-logo" />
@@ -51,7 +51,7 @@ function Navbar() {
                 </li>
             </ul>
         </div>
-       </>
+       </header>
     );
 }
 

@@ -1,0 +1,44 @@
+const express = require('express')
+const dotenv = require('dotenv')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
+const dbConnection = require('./config/dbConnect')
+const adminRoutes = require('./routes/admin/adminRoutes')
+const productRoutes = require('./routes/products/productRoutes')
+
+
+
+
+const app = express();
+dbConnection();
+
+const port = process.env.PORT || 5001;
+
+  
+app.use(cors({ 
+    origin : "http://localhost:5173",
+    methods : ['GET', 'POST', 'DELETE', 'PUT'],  
+    allowedHeaders : [  
+        'Content-Type', 
+        'Authorization',
+        'Cache-Control',
+        'Expires',
+        'Pragma' 
+    ], 
+    credentials : true
+})) 
+  
+app.use(express.json());  
+app.use(cookieParser());
+ 
+app.use('/api/admin', adminRoutes);
+app.use('/api/products', productRoutes) 
+   
+app.get('/api/admin', (req,res) => { 
+    console.log(req);
+    res.status(200).json({ msg:"welcome to the admin page"})
+})
+
+app.listen(port, () => console.log(`listening for requests on port ${port}`) );         
+
+ 

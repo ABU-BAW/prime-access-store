@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom";
-import { featured } from "@/data/products"
+import { shuffled } from "@/data/products"
 
 
 function Featured() {
+
+    const featured = shuffled.slice(0, 4);
     
     return ( 
         <section className="py-4 px-0  bg-mute ">
@@ -35,10 +37,12 @@ function Featured() {
                             </div>
                             <div className="flex flex-col pt-1 pb-2  border-t  px-2 flex-1 justify-between">
                                 <div className="flex flex-col gap-3">
-                                    <h3 className="text-lg tracking-tight font-bold leading-normal">{product.name}</h3>
+                                    <h3 className="text-sm tracking-tight font-bold leading-normal line-clamp-2">{product.name}</h3>
                                     <p className="text-sm font-semibold text-foreground leading-0 mb-2">GH{"\u20B5"}{product.price}</p>
                                 </div>
-                                <Link to="/shop/product"><Button className="w-full" size="sm">Purchase</Button></Link>
+                                <Link to={`/shop/${product.slug}/${product.name}`}>
+                                    <Button className="w-full" size="sm">Purchase</Button>
+                                </Link>
                             </div>
                         </div> 
                     ))

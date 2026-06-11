@@ -1,25 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { products } from "../data/products";
+import axios from "axios";
 
 function ProductPage() {
-    const { category, product } = useParams();
+    const [product, setProduct] = useState(null)
     const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
     const [activeImage, setActiveImage] = useState(0);
 
-    const item = products.find((p) => p.slug === category && p.name === product );
+    //const item = products.find((p) => p.slug === category && p.name === product );
+
+    const {id } = useParams()
+    console.log(id);
+    useEffect(() => {
+        const fetchProduct = async () => {
+             console.log('id is:', id) 
+            try {
+                const res = await axios.get(`http://localhost:5000/api/products/${id}`)
+                console.log(res.data)
+                setProduct(res.data.product)
+
+            } catch (error) {
+                console.log(error.message)
+            }
+            
+        }
+        fetchProduct()
+    }, [id])
 
     // Placeholder thumbnail images - replace with real product images
     const images = [
-        product?.image || "/lct.jpg",
+        product?.imageUrl || "/lct.jpg",
         "/lct.jpg",
         "/lct.jpg",
         "/lct.jpg",
     ];
 
-    if (!item) {
+    if (!product) {
         return (
             <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4 px-4">
                 <h2 className="text-2xl sm:text-3xl font-bold text-center">Product not found</h2>
@@ -72,7 +90,7 @@ function ProductPage() {
                         <div className="relative bg-muted rounded-xl sm:rounded-2xl overflow-hidden aspect-square shadow-lg group">
                             <img
                                 src={images[activeImage]}
-                                alt={item.name}
+                                alt={product.name}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                             {/* Product badge */}
@@ -95,7 +113,7 @@ function ProductPage() {
                                 >
                                     <img
                                         src={img}
-                                        alt={`${item.name} view ${index + 1}`}
+                                        alt={`${product.name} view ${index + 1}`}
                                         className="w-full h-full object-cover"
                                     />
                                 </button>
@@ -111,12 +129,12 @@ function ProductPage() {
                                 Prime Access GH
                             </p>
                             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight capitalize">
-                                {item.name}
+                                {product.name}
                             </h1>
                             <div className="flex items-baseline gap-2 sm:gap-3 pt-2">
-                                <span className="text-3xl sm:text-4xl font-bold">${item.price}</span>
+                                <span className="text-3xl sm:text-4xl font-bold">${product.price}</span>
                                 <span className="text-foreground/40 text-base sm:text-lg line-through">
-                                    ${Math.round(item.price * 1.2)}
+                                    ${Math.round(product.price * 1.2)}
                                 </span>
                                 <span className="text-xs sm:text-sm font-semibold bg-black text-white px-2 py-1 rounded-md">
                                     20% OFF
@@ -131,9 +149,9 @@ function ProductPage() {
                         <div className="space-y-2 sm:space-y-3">
                             <h3 className="font-semibold text-base sm:text-lg">About This Product</h3>
                             <p className="text-foreground/70 leading-relaxed text-sm sm:text-base">
-                                The {item.name} is a premium quality tech accessory built for
+                                The {product.name} is a premium quality tech accessory built for
                                 professionals and everyday users alike. Engineered for durability,
-                                performance, and reliability — this is the last {item.name.split(" ")[0]} you'll
+                                performance, and reliability — this is the last {product.name.split(" ")[0]} you'll
                                 ever need to buy.
                             </p>
                             <p className="text-foreground/70 leading-relaxed text-sm sm:text-base">
@@ -175,7 +193,7 @@ function ProductPage() {
                                 <span className="text-foreground/50 text-xs sm:text-sm">
                                     Total:{" "}
                                     <span className="text-black font-bold text-sm sm:text-base">
-                                        ${(item.price * quantity).toFixed(2)}
+                                        ${(product.price * quantity).toFixed(2)}
                                     </span>
                                 </span>
                             </div>
@@ -276,7 +294,7 @@ function ProductPage() {
                 </div>
 
                 {/* You May Also Like */}
-                <div className="mt-12 sm:mt-20">
+                {/* <div className="mt-12 sm:mt-20">
                     <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">You May Also Like</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                         {products
@@ -302,7 +320,7 @@ function ProductPage() {
                                 </Link>
                             ))}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

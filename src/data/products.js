@@ -20,12 +20,12 @@ export const products = [
         },
 
         {     
-                id: 3, 
-                name: "Ring Light xe", 
-                price: 120, 
-                category: "Ring lights", 
-                slug: "ring-lights",
-                image: "/ring-lights/rl2.jpg"
+                id : 3,
+                name : "MP-03 Gaming Mouse Pad",  
+                price : 200, 
+                category: "Mouse Pads",
+                slug : "mouse-pads", 
+                image : "/mouse-pad/m4.jpg"
         },
 
         {       
@@ -55,12 +55,12 @@ export const products = [
         },
 
         {       
-                id : 7,
-                name : "MP-03 Gaming Mouse Pad",  
-                price : 200, 
-                category: "Mouse Pads",
-                slug : "mouse-pads", 
-                image : "/mouse-pad/m4.jpg"
+                id: 7, 
+                name: "Ring Light xe", 
+                price: 120, 
+                category: "Ring lights", 
+                slug: "ring-lights",
+                image: "/ring-lights/rl2.jpg"
         },
 
         {       
@@ -220,7 +220,7 @@ export const products = [
                 image: "/tripods/ts2.jpg"
         },
         {
-                id: 26,
+                id: 27,
                 name: "TS-50 Adjustable Tripod Stand",
                 price: 320,
                 category: "Tripod stands",
@@ -228,7 +228,7 @@ export const products = [
                 image: "/tripods/ts2.jpg"
         },
         {
-                id: 27,
+                id: 28,
                 name: "TS-60 Pro Tripod Stand",
                 price: 450,
                 category: "Tripod stands",
@@ -236,7 +236,7 @@ export const products = [
                 image: "/tripods/ts3.jpg"
         },
         {
-                id: 28,
+                id: 29,
                 name: "TS-70 Heavy Duty Tripod",
                 price: 600,
                 category: "Tripod stands",
@@ -244,7 +244,7 @@ export const products = [
                 image: "/tripods/ts4.jpg"
         },
         {
-                id: 29,
+                id: 30,
                 name: "TS-80 Studio Tripod Stand",
                 price: 750,
                 category: "Tripod stands",
@@ -252,7 +252,7 @@ export const products = [
                 image: "/tripods/ts3.jpg"
         },
         {
-                id: 30,
+                id: 31,
                 name: "TS-90 Max Height Tripod",
                 price: 900,
                 category: "Tripod stands",
@@ -260,7 +260,7 @@ export const products = [
                 image: "/tripods/ts1.jpg"
         },
         {
-                id: 31,
+                id: 32,
                 name: "TS-100 Aluminum Tripod",
                 price: 1050,
                 category: "Tripod stands",
@@ -268,7 +268,7 @@ export const products = [
                 image: "/tripods/ts4.jpg"
         },
         {
-                id: 32,
+                id: 33,
                 name: "TS-120 Professional Tripod",
                 price: 1250,
                 category: "Tripod stands",
@@ -277,7 +277,7 @@ export const products = [
         },
 
         {
-                id: 33,
+                id: 34,
                 name: "MP-01 Basic Mouse Pad",
                 price: 50,
                 category: "Mouse pads",
@@ -285,7 +285,7 @@ export const products = [
                 image: "/mouse-pad/mp1.jpg"
         },
         {
-                id: 34,
+                id: 35,
                 name: "MP-02 Smooth Surface Mouse Pad",
                 price: 80,
                 category: "Mouse pads",
@@ -293,7 +293,7 @@ export const products = [
                 image: "/mouse-pad/mp2.jpg"
         },
         {
-                id: 35,
+                id: 36,
                 name: "MP-03 Gaming Mouse Pad",
                 price: 120,
                 category: "Mouse pads",
@@ -301,7 +301,7 @@ export const products = [
                 image: "/mouse-pad/mp3.jpg"
         },
         {
-                id: 36,
+                id: 37,
                 name: "MP-04 Extended Mouse Pad",
                 price: 180,
                 category: "Mouse pads",
@@ -309,7 +309,7 @@ export const products = [
                 image: "/mouse-pad/m4.jpg"
         },
         {
-                id: 37,
+                id: 38,
                 name: "MP-05 RGB Mouse Pad",
                 price: 250,
                 category: "Mouse pads",
@@ -317,7 +317,7 @@ export const products = [
                 image: "/mouse-pad/mp1.jpg"
         },
         {
-                id: 38,
+                id: 39,
                 name: "MP-06 Anti-Slip Mouse Pad",
                 price: 140,
                 category: "Mouse pads",
@@ -325,7 +325,7 @@ export const products = [
                 image: "/mouse-pad/mp3.jpg"
         },
         {
-                id: 39,
+                id: 40,
                 name: "MP-07 Waterproof Mouse Pad",
                 price: 160,
                 category: "Mouse pads",
@@ -333,7 +333,7 @@ export const products = [
                 image: "/mouse-pad/mp2.jpg"
         },
         {
-                id: 40,
+                id: 41,
                 name: "MP-08 XL Desk Mouse Pad",
                 price: 300,
                 category: "Mouse pads",

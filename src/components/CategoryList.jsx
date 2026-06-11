@@ -1,7 +1,8 @@
 import { Button } from "./ui/button";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import { products } from "@/data/products";
+
 
 
 
@@ -34,7 +35,9 @@ function CategoryList() {
                                     <h3 className="text-sm tracking-tight font-bold leading-normal line-clamp-2">{product.name}</h3>
                                     <p className="text-sm font-semibold text-foreground leading-0 mb-2">GH{"\u20B5"}{product.price}</p>
                                 </div>
-                                <Button className="w-full" size="sm">Purchase</Button>
+                                <Link to={`/shop/${product.slug}/${product.name}`} >
+                                    <Button className="w-full" size="sm">Purchase</Button>
+                                </Link>
                             </div>
                         </div> 
                     ))
