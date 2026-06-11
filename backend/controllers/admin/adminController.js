@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv').config()
 const Admin = require("../../models/admin");
+const { trusted } = require('mongoose');
 
 const register_admin = async(req, res) => {
 
@@ -44,7 +45,7 @@ const login_admin = async(req, res) => {
             { expiresIn : '60m' }
         )
 
-        res.cookie('token', token, { httpOnly : true, secure : false, sameSite : 'lax', path : '/' }).json({
+        res.cookie('token', token, { httpOnly : true, secure : true, sameSite : 'none', path : '/' }).json({
             'success' : true,
             'message' : 'login successful!!',
             admin : {
