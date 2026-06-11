@@ -46,7 +46,7 @@ function AdminLayout() {
         } catch (error) {
             console.log(error.message)
         }
-}
+} 
 
     return ( 
         <div className="flex min-h-screen w-full px-0 mx-0">
