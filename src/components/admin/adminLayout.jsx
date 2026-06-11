@@ -50,7 +50,7 @@ function AdminLayout() {
 
     return ( 
         <div className="flex min-h-screen w-full px-0 mx-0">
-            <div className="w-1/5 space-y-8  border bg-foreground/90 text-white pt-8 pl-8">
+            <div className="w-1/5 space-y-8  border bg-foreground/90 text-white pt-8 pl-8">     
                 <div className="text-white flex items-center gap-4">
                     <div className="bg-white p-2 w-16 rounded-md"><Store color="black" size={48}/></div>
                     <span>
