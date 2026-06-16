@@ -27,7 +27,7 @@ function PublicLayout() {
         <Navbar/>
       </header> 
 
-      <main className="flex-1 bg-muted text-foreground flex flex-col px-4 lg:px-45 py-2">
+      <main className="flex-1 bg-muted text-foreground flex flex-col px-4 lg:px-45 py-2 mt-20">
         <Outlet/>
       </main>
 
