@@ -1,11 +1,16 @@
-import { Menu, X, Search, CircleDotDashed, Mouse, Camera, HardDrive, Cable, Frame, ChevronRight, Headset, Info, PhoneCall } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Search, CircleDotDashed, Mouse, Camera, HardDrive, Cable, Frame, ChevronRight, Headset, Info, PhoneCall, ShoppingCart } from "lucide-react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "./ui/input";
+import { CartContext } from "./Features/ContextProvider";
+
 
 function Navbar() {
 
     const[mobileMenu, setMobileMenu]  = useState(false);
+   
+    const {cart} = useContext(CartContext)
+
     const categories = [
         {
             name : 'Ring Lights',
@@ -41,10 +46,10 @@ function Navbar() {
     ]
     return ( 
        <header className="shrink-0">
-           <nav className="flex fixed right-0 left-0 top-0 justify-around items-center z-50 bg-background  font-semibold text-foreground h-20 drop-shadow-lg text-base">
+           <nav className="flex fixed right-0 left-0 top-0 justify-around items-center z-50 bg-background  font-semibold text-foreground h-20 drop-shadow-lg text-base gap-x-4">
                 <Link to= "/" className="flex items-center gap-2 hover:bg-muted p-2 rounded-lg">
                     <img src="/logo.svg" className="h-10 w-auto"  alt="prime-access-logo" />
-                    <span className="font-bold text-xl leading-none">Prime Access GH</span>
+                    <span className="font-bold text-lg leading-none tracking-tight">Prime Access GH</span>
                 </Link>
                 <ul className="hidden lg:flex lg:gap-12">
                     <li className="bg-muted p-2 rounded-lg hover:bg-muted-foreground hover:text-white"><Link to="/shop?category=ring-lights">Ring Lights</Link></li>
@@ -55,12 +60,23 @@ function Navbar() {
                     <li className="bg-muted p-2 rounded-lg hover:bg-muted-foreground hover:text-white "><Link to="/about">About us</Link></li>
                     <li className="bg-muted p-2 rounded-lg hover:bg-muted-foreground hover:text-white"><Link to="/contact">Contact us</Link></li>
                 </ul>
-                <button
-                    className="lg:hidden block cursor-pointer p-2"
-                    onClick={() => {setMobileMenu(!mobileMenu)}}
-                >
-                    {mobileMenu ? <X size={28}/> : <Menu size={28} />}
-                </button>
+
+                <div className="flex gap-x-2 justify-center items-center">
+                    <div className="relative">
+                        <Link to="/cart">
+                            <ShoppingCart size={30} strokeWidth={1.25}  />
+                            <div className="flex justify-center items-center absolute bg-black  w-5 h-5  rounded-full text-white  right-0 -top-2.5 transform translate-x-1/2 text-xs"> {cart.length} </div>
+                        </Link>
+                    </div>
+                    
+                    <button
+                        className="lg:hidden block cursor-pointer p-2"
+                        onClick={() => {setMobileMenu(!mobileMenu)}}
+                    >
+                        {mobileMenu ? <X size={30}/> : <Menu size={30} />}
+                    </button>
+                </div>
+                
             </nav>
     
             <div className={`lg:hidden fixed top-20 left-0 px-4  pt-4  w-3/4 h-[calc(100vh-5rem)] bg-background shadow-lg z-40 transform transition-transform duration-300 ease-in-out ${
@@ -78,12 +94,14 @@ function Navbar() {
 
                 <h3 className="font-semibold tracking-wider text-lg mt-6 mb-4">EXPLORE</h3>
                 {
-                    categories.map(category => ( <div key={category.id} className="flex items-center justify-between min-h-12 pl-1 hover:cursor-pointer hover:bg-muted text-md text-black/60 ">
-                        <div className="flex items-center  gap-4">
-                            {category.icon}
-                            <span>{category.name}</span>
-                        </div>
-                        <span><ChevronRight /></span>
+                    categories.map(category => ( <div key={category.id}>
+                        <Link to={`/shop?category=${category.name.toLowerCase()}`}  onClick={() => setMobileMenu(false)}  className="flex items-center justify-between min-h-12 pl-1 hover:cursor-pointer hover:bg-muted text-md text-black/60 ">
+                            <div className="flex items-center  gap-4">
+                                {category.icon}
+                                <span>{category.name}</span> 
+                            </div>
+                            <span><ChevronRight /></span>
+                        </Link>
                     </div> ))
                 }
                 <ul className="mt-6 border-t pt-4 text-black/60 text-md">
@@ -115,23 +133,7 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
-                {/* <ul className="flex flex-col items-center gap-1 py-2 font-semibold text-base">
-                    <li className="list-none w-full text-center p-2 hover:bg-muted transition-all cursor-pointer">
-                        <Link to="/shop?category=ring-lights" onClick={() => setMobileMenu(false)}>Ring Lights</Link>
-                    </li>
-                    <li className="list-none w-full text-center p-2 hover:bg-muted transition-all cursor-pointer">
-                        <Link to="/shop?category=data-cables" onClick={() => setMobileMenu(false)}>Charging Chords</Link>
-                    </li>
-                    <li className="list-none w-full text-center p-2 hover:bg-muted transition-all cursor-pointer">
-                        <Link to="/shop?category=computer-pads" onClick={() => setMobileMenu(false)}>Computer Pads</Link>
-                    </li>
-                    <li className="list-none w-full text-center p-2 hover:bg-muted transition-all cursor-pointer border-t mt-2">
-                        
-                    </li>
-                    <li className="list-none w-full text-center p-2 hover:bg-muted transition-all cursor-pointer">
-                        <Link to="/contact" onClick={() => setMobileMenu(false)}>Contact us</Link>
-                    </li>
-                </ul> */}
+                
             </div>
        </header>
     );

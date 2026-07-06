@@ -12,13 +12,11 @@ function ProductPage() {
     //const item = products.find((p) => p.slug === category && p.name === product );
 
     const {id } = useParams()
-    console.log(id);
     useEffect(() => {
         const fetchProduct = async () => {
              console.log('id is:', id) 
             try {
                 const res = await axios.get(`http://localhost:5000/api/products/${id}`)
-                console.log(res.data)
                 setProduct(res.data.product)
 
             } catch (error) {

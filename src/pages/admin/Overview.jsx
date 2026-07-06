@@ -19,7 +19,6 @@ function Overview() {
 
 
     const stock = products.length;
-    
 
     return ( 
         <>

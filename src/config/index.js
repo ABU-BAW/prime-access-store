@@ -71,5 +71,12 @@ export const productFormControls = [
         componentType : 'input',
         placeholder: 'thumbnail...',
         type : 'file'
+    },
+    {
+        name : 'quantity',
+        label : 'Quantity',
+        componentType : 'input',
+        placeholder : 'quantity...',
+        type : 'number;'
     }
 ]

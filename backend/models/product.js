@@ -19,6 +19,10 @@ const productSchema = new schema({
     imageUrl : {
         type : String, 
         required : true
+    },
+    quantity : {
+        type : Number,
+        required : true
     }
 }, {timestamps : true})
 

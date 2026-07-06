@@ -17,6 +17,8 @@ import Products from "./pages/admin/Products "
 import Categories from "./pages/admin/Categories"
 import Storefront from "./pages/admin/Storefront"
 import CheckAuth from "./common/check-auth"
+import Cart from "./pages/Cart"
+import Checkout from "./pages/Checkout"
 
 
 
@@ -30,7 +32,7 @@ function PublicLayout() {
       <main className="flex-1 bg-muted text-foreground flex flex-col px-4 lg:px-45 py-2 mt-20">
         <Outlet/>
       </main>
-
+ 
       <Footer/>
 
     </div>
@@ -52,8 +54,10 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/shop/:category" element={<CategoryList />} />
-        <Route path="/shop/product/:id" element={<ProductPage />} />
+        <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/shop/:category" element={<CategoryList />} /> */}
+        <Route path="/shop/:id" element={<ProductPage />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Route>
 
       <Route path="/admin/auth" element={<AuthLayout />}>

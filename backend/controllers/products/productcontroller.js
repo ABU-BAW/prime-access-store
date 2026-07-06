@@ -56,7 +56,7 @@ const create_product = async (req, res) => {
         }
 
         const imageUrl = req.file.path;
-        const product = await new Product({...req.body, imageUrl}).save()
+        const product = await new Product({...req.body, imageUrl, category: req.body.category.toLowerCase()}).save()
         res.status(200).json({
             success : true,
             message : 'product successfully uploaded',

@@ -16,7 +16,8 @@ const initialFormData = {
     name : '',
     category : '',
     price : '',
-    image: null
+    image: null,
+    quantity : 0
 }
 
 function AdminLayout() { 
@@ -35,6 +36,7 @@ function AdminLayout() {
             data.append('category', formData.category)
             data.append('price', formData.price)
             data.append('image', formData.image)
+            data.append('quantity', formData.quantity)
 
             
             const res = await axios.post('http://localhost:5000/api/products/', data);

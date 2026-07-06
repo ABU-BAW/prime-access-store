@@ -4,11 +4,14 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import { Toaster } from "@/components/ui/sonner"
+import ContextProvider from './components/Features/ContextProvider'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <BrowserRouter>
-    <App />
+    <ContextProvider>
+      <App />
+    </ContextProvider>
     <Toaster />
   </BrowserRouter>
   </StrictMode>

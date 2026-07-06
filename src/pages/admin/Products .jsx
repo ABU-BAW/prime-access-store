@@ -11,7 +11,8 @@ const initialFormData = {
     name : '',
     category : '',
     price : '',
-    image: null
+    image: null,
+    quantity : 0
 }
 
 
@@ -42,6 +43,7 @@ function Products() {
             data.append('category', formData.category)
             data.append('price', formData.price)
             data.append('image', formData.image)
+            data.append('quantity', formData.quantity)
 
             
             const res = await axios.post('http://localhost:5000/api/products/', data);
@@ -114,7 +116,9 @@ function Products() {
                         <th className="p-4 text-2xl">PRODUCT</th>
                         <th className="p-4 text-2xl">CATEGORY</th>
                         <th className="p-4 text-2xl">PRICE</th>
+                        <th className="p-4 text-2xl">QUANTITY</th>
                         <th className="p-4 text-right text-2xl">ACTION</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -123,10 +127,11 @@ function Products() {
                             <tr key={product._id} className="border-b">
                                 <td className="flex gap-4 p-4 ">
                                     <img src={product.imageUrl} alt="image of product" className="h-14 w-14 rounded-sm" />
-                                    <span className="self-center text-xl text-black/90 font-semibold tracking-tight">{product.name}</span>
+                                    <span className="self-center text-xl text-black/80 font-semibold tracking-tight">{product.name}</span>
                                 </td>
                                 <td className="p-4 text-xl">{product.category} </td>
-                                <td className="p-4 text-xl text-black/90 font-semibold tracking-tight">{product.price}</td>
+                                <td className="p-4 text-xl text-black/80 font-semibold">{product.price}</td>
+                                <td className="p-4 text-xl text-black/80 font-semibold">{product.quantity}</td>
                                 <td className="p-4 text-right space-x-6 text-xl">
                                     <button onClick={() => handleEdit(product)} className="hover:bg-white/80 w-8 h-10 px-1 rounded-sm" ><Pencil /></button>
                                     <button onClick={() => handleDelete(product._id)} className="hover:bg-white/80 w-8 h-10 px-1 rounded-sm"><Trash2 /></button>
