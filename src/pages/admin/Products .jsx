@@ -1,10 +1,10 @@
 import { Plus, Trash2, Pencil } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { productFormControls } from "@/config";
 import ProductForm from "@/common/pform";
 import { toast } from "sonner";
+import api from "@/lib/api";
 
 
 const initialFormData = {
@@ -24,7 +24,7 @@ function Products() {
 
 
     const fetchProducts = async () => {
-        const res = await axios.get('http://localhost:5000/api/products')
+        const res = await api.get('/api/products')
         setProducts(res.data.products)
 
     }
@@ -46,7 +46,7 @@ function Products() {
             data.append('quantity', formData.quantity)
 
             
-            const res = await axios.post('http://localhost:5000/api/products/', data);
+            const res = await api.post('/api/products/', data);
             await fetchProducts()
             setIsLoading(false)
             toast.success(res.data.message, {position : "top-center"});
@@ -60,7 +60,7 @@ function Products() {
 
     const handleDelete = async(productId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/products/${productId}`)
+            await api.delete(`/api/products/${productId}`)
             fetchProducts()
             toast.success('Product Successfully deleted!!', {position : 'top-center'})
         } catch (error) {

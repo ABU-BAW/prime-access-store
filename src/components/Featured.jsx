@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom";
-import { shuffled } from "@/data/products"
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import { CartContext } from "./Features/ContextProvider";
 import { cediSymbol } from "@/lib/utils";
-
+import api from "@/lib/api"
 
 function Featured() {
 
@@ -16,7 +14,7 @@ function Featured() {
     useEffect(() => {
         const fetchProducts = async() => {
             try {
-                const res = await axios.get('http://localhost:5000/api/products')
+                const res = await api.get('/api/products')
                 setFeatured(res.data.products.slice(0, 4));
             } catch (error) {
                 console.log(error.message);

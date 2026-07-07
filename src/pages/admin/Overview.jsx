@@ -1,7 +1,7 @@
-
+import api from "@/lib/api";
 import {Calendar, Download, SquarePlus, Images, FileCheckCorner, Banknote, ShoppingBag, TriangleAlert } from "lucide-react"
 import { useEffect, useState } from "react";
-import axios from "axios"
+
 
 
 function Overview() {
@@ -9,7 +9,7 @@ function Overview() {
 
     
     const fetchProducts = async () => {
-    const res = await axios.get('http://localhost:5000/api/products')
+    const res = await api.get('/api/products')
     setProducts(res.data.products)
     }
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import axios from "axios";
+import api from "@/lib/api";
 
 function ProductPage() {
     const [product, setProduct] = useState(null)
@@ -16,7 +16,7 @@ function ProductPage() {
         const fetchProduct = async () => {
              console.log('id is:', id) 
             try {
-                const res = await axios.get(`http://localhost:5000/api/products/${id}`)
+                const res = await api.get(`/api/products/${id}`)
                 setProduct(res.data.product)
 
             } catch (error) {

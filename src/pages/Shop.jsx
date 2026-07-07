@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { Link, useSearchParams } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
-import axios from "axios"
 import { CartContext } from "@/components/Features/ContextProvider"
 import { cediSymbol } from "@/lib/utils"
+import api from "@/lib/api"
 
 
 function Shop() {
@@ -17,7 +17,7 @@ function Shop() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/products')
+                const res = await api.get('/api/products')
                 const allProducts = res.data.products;
                 const filteredProducts = category ? allProducts.filter(p => p.category === category) : allProducts;
                 setProducts(filteredProducts);
