@@ -18,7 +18,7 @@ const initialize_payment = async(req, res) => {
                 amount : amount * 100,
                 channels : ["mobile_money"],
                 currency : "GHS",
-                callback_url : "http://localhost:5173/payment/verify",
+                callback_url : `https://prime-access-store.vercel.app/payment/verify`,
                 metadata : {orderId}
             },
             {
