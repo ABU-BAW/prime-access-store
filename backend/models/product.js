@@ -6,11 +6,13 @@ const schema = mongoose.Schema;
 const productSchema = new schema({
     name : {
         type : String,
-        required : true
+        required : true,
+        trim : true
     },
     category : {
         type : String,
-        required : true
+        required : true,
+        trim : true
     },
     price : {
         type : Number,

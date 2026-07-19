@@ -5,8 +5,8 @@ const cors = require('cors')
 const dbConnection = require('./config/dbConnect')
 const adminRoutes = require('./routes/admin/adminRoutes')
 const productRoutes = require('./routes/products/productRoutes')
-
-
+const paymentRoutes = require('./routes/payment/paymentRoutes')
+const orderRoutes = require('./routes/orders/orderRoutes')
 
 
 const app = express();
@@ -33,6 +33,8 @@ app.use(cookieParser());
  
 app.use('/api/admin', adminRoutes);
 app.use('/api/products', productRoutes) 
+app.use('/api/payment', paymentRoutes)
+app.use('/api/orders', orderRoutes)
    
 app.get('/api/admin', (req,res) => { 
     console.log(req);

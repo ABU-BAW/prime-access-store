@@ -19,6 +19,8 @@ import Storefront from "./pages/admin/Storefront"
 import CheckAuth from "./common/check-auth"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
+import VerifyPayment from "./components/VerifyPayment"
+import OrderSuccess from "./pages/OrderSuccess"
 
 
 
@@ -58,6 +60,8 @@ function App() {
         {/* <Route path="/shop/:category" element={<CategoryList />} /> */}
         <Route path="/shop/:id" element={<ProductPage />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/payment/verify" element={<VerifyPayment />} />
+        <Route path="/order-success" element={< OrderSuccess/>} />
       </Route>
 
       <Route path="/admin/auth" element={<AuthLayout />}>

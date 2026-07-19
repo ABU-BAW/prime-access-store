@@ -1,25 +1,76 @@
 import Delivery from "@/components/DeliveryForm";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import api from "@/lib/api";
 import { cediSymbol } from "@/lib/utils";
 import {ChevronLeft,ChevronRight, FilePenLine} from "lucide-react"
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { CartContext } from "@/components/Features/ContextProvider";
+import { toast } from "sonner";
+
+
 
 
 
 
 function Checkout() {
-
     const [deliveryForm, setDeliveryForm] = useState(false)
+    const { cart } = useContext(CartContext)
+
+    const items = cart.map(({_id, name, imageUrl, price, cartQuantity}) => ({
+            product : _id,
+            name,
+            image : imageUrl,
+            price,
+            quantity : cartQuantity 
+        })
+    )
+
     const [formData, setFormData] = useState({
         name : '',
+        email : '',
         callNumber : '',
         watsappNumber : '',
         location : ''
     })
 
     const {state} = useLocation();
-    const {totalPrice} = state;
+    const {subtotal} = state;
+
+    const deliveryfee = 0
+    const totalPrice = subtotal + deliveryfee;
+    
+
+
+    const handlePayment = async () => {
+        try {
+            const resp = await api.post('/api/orders/order', {
+                items,
+                delivery : formData,
+                payment : {
+                    method : "mobile_money",
+                    amount : totalPrice
+                },
+                subtotal, 
+                deliveryfee,
+                total : totalPrice
+            } )
+
+            toast.success(resp.data.message, { position : "top-center"}) 
+            console.log(resp.data.order._id)
+            const res =  await api.post('/api/payment/initialize', {
+                email : formData.email,
+                amount : totalPrice,
+                orderId : "resp.data.order._id"
+            })
+            
+            window.location.href = res.data.data.authorization_url
+
+        } catch (error) {
+           console.log(error.response?.data);
+        }
+       
+    }
 
     return ( 
         <>
@@ -31,6 +82,7 @@ function Checkout() {
             <h2 className="font-semibold self-start text-lg mt-2 text-black/80">Delivery to</h2>
             <div className="relative bg-background p-2 shadow-sm rounded-sm">  
                 <p className="text-lg font-bold">{formData.name}</p>
+                <p className="text-md text-black/50">{formData.email}</p>
                 <p className="text-md text-black/50">{formData.callNumber} / {formData.watsappNumber}</p>
                 <p className="text-md text-black/50">{formData.location}</p>
                 <button className="absolute top-2.5 right-2.5" onClick={() => setDeliveryForm(true)}><FilePenLine /></button>
@@ -78,8 +130,14 @@ function Checkout() {
             </div>
 
             <div className="mt-2 rounded-sm p-2 bg-background shadow-sm">
-                <p className="flex justify-between  p-1.5 font-bold">TOTAL TO PAY <span>{cediSymbol} 0</span></p>
-                <button className="border w-full rounded-md drop-shadow-sm text-white bg-black/80 p-1.5 mt-3">Proceed to Payment </button>
+                <p className="flex justify-between  p-1.5 font-bold">TOTAL TO PAY <span>{cediSymbol} {totalPrice}</span></p>
+                <button 
+                    className="border w-full rounded-md drop-shadow-sm text-white bg-black/80 p-1.5 mt-3"
+                    onClick={handlePayment}
+                    type="button"
+                >   
+                    Proceed to Payment 
+                </button>
             </div>
 
 

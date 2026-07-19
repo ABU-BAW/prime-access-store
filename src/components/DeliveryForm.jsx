@@ -9,7 +9,7 @@ function Delivery({setDeliveryForm, formData, setFormData}) {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-background w-[90%] max-w-md rounded-lg p-4">
                 <h2 className="font-semibold text-lg mb-4">Delivery Details</h2>
-                <form  className="w-full">
+                <form  className="w-full ">
                    <p className="flex flex-col space-y-2 mb-2">
                        <label className="font-semibold">Name</label>
                        <input
@@ -18,6 +18,16 @@ function Delivery({setDeliveryForm, formData, setFormData}) {
                         value={formData.name}
                         placeholder="enter your name.."
                         onChange={(e) => setFormData({...formData, name : e.target.value})}
+                        />
+                   </p>
+                   <p className="flex flex-col space-y-2 mb-2">
+                    <label className="font-semibold">Email</label>
+                       <input
+                        className="border p-1.5"
+                        type="text"
+                        value={formData.email}
+                        placeholder="your active email address..."
+                        onChange={(e) => setFormData({...formData, email : e.target.value})}
                         />
                    </p>
                    <p className="flex flex-col space-y-2 mb-2">

@@ -44,7 +44,7 @@ function Cart() {
                 <p className="text-black">Total Price : {cediSymbol} {totalPrice (cart)} </p>
                 <Link 
                     to="/checkout" 
-                    state={{totalPrice : totalPrice(cart)}} 
+                    state={{subtotal : totalPrice(cart)}} 
                     className="bg-black/80 text-lg w-full rounded-md shadow-md text-white flex items-center justify-center py-2">
                     Proceed to checkout
                 </Link>
