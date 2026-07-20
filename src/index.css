@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+
+[data-sonner-toast][data-type="success"] {
+    background-color: #16a34a !important;
+    color: white !important;
+    border: none !important;
+}
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -547,3 +554,5 @@ button:focus-visible {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--foreground) / 0.5);
 }
+
+

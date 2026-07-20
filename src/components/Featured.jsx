@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { CartContext } from "./Features/ContextProvider";
 import { cediSymbol } from "@/lib/utils";
 import api from "@/lib/api"
+import { toast } from "sonner";
 
 function Featured() {
 
@@ -59,8 +60,13 @@ function Featured() {
                                 </div>
                                 
                                 <Button className="w-full" size="sm"
-                                    onClick={() => dispatch({type : "Add", product :{ ...product, cartQuantity : 1}})}
-                                >Add to Cart</Button>
+                                    onClick={() => {    
+                                        dispatch({type : "Add", product :{ ...product, cartQuantity : 1}})
+                                        toast.success('Added to Cart!!', {position : "top-center"})
+                                    }}
+                                >
+                                    Add to Cart
+                                </Button>
                                 
                             </div>
                         </div> 

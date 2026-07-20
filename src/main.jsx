@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')).render(
     <ContextProvider>
       <App />
     </ContextProvider>
-    <Toaster />
+    <Toaster richColors />
   </BrowserRouter>
   </StrictMode>
 )

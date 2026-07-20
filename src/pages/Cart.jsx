@@ -4,6 +4,7 @@ import { ShoppingCart , Plus , Minus, Trash2,} from "lucide-react";
 import { cediSymbol } from "@/lib/utils";
 import { totalItems, totalPrice } from "@/components/Features/CartReducer";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 
 function Cart() {
@@ -33,7 +34,13 @@ function Cart() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute top-0 right-0" onClick={() => dispatch({type : "Remove", id : product._id})}><Trash2 size={25} strokeWidth={2} absoluteStrokeWidth /></div>
+                            <div className="absolute top-0 right-0" 
+                                onClick={() =>  { 
+                                    dispatch({type : "Remove", id : product._id})
+                                    toast.error('Removed from Cart!!', { position : "top-center" })
+                                }}>
+                                    <Trash2 size={25} strokeWidth={2} absoluteStrokeWidth />
+                            </div>
                         </div>
                         
                     ))

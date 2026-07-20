@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import { CartContext } from "@/components/Features/ContextProvider"
 import { cediSymbol } from "@/lib/utils"
 import api from "@/lib/api"
+import { toast } from "sonner"
 
 
 function Shop() {
@@ -51,10 +52,14 @@ function Shop() {
                                     <p className="text-sm font-semibold text-foreground leading-0 mb-2">{cediSymbol}{product.price}</p>
                                 </div>
                                 
-                                <Button
-                                    className="w-full" size="sm"
-                                    onClick={() => dispatch({ type: "Add", product: {...product, cartQuantity : 1 }})}
-                                >Add to Cart</Button>
+                                <Button className="w-full" size="sm"
+                                    onClick={() => {    
+                                        dispatch({type : "Add", product :{ ...product, cartQuantity : 1}})
+                                        toast.success('Added to Cart!!', {position : "top-center"})
+                                    }}
+                                >
+                                    Add to Cart
+                                </Button>
                                 
                             </div>
                         </div>
