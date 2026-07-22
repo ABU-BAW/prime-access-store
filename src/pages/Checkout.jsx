@@ -57,7 +57,7 @@ function Checkout() {
             } )
 
             toast.success(resp.data.message, { position : "top-center"}) 
-            console.log(resp.data.order._id)
+            
             const res =  await api.post('/api/payment/initialize', {
                 email : formData.email,
                 amount : totalPrice,

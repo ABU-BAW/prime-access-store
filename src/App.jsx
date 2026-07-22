@@ -6,8 +6,8 @@ import Shop from "./pages/Shop"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
-import CategoryList from "./components/CategoryList"
-import ProductPage from "./pages/Product-description"
+// import CategoryList from "./components/CategoryList"
+// import ProductPage from "./pages/Product-description"
 import AuthLayout from "./components/auth"
 import Login from "./pages/auth/login"
 import Register from "./pages/auth/register"
@@ -21,6 +21,7 @@ import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
 import VerifyPayment from "./components/VerifyPayment"
 import OrderSuccess from "./pages/OrderSuccess"
+import Productdetail from "./pages/Product-description"
 
 
 
@@ -58,7 +59,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="/shop/:category" element={<CategoryList />} /> */}
-        <Route path="/shop/:id" element={<ProductPage />} />
+        <Route path="/shop/:id" element={<Productdetail />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/payment/verify" element={<VerifyPayment />} />
         <Route path="/order-success" element={< OrderSuccess/>} />
